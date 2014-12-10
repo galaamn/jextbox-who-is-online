@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+	<name>JExtBOX Who is Online</name>
+	<author>Galaa</author>
+	<creationDate>Jan 2014</creationDate>
+	<copyright>Copyright (C) 2014 Galaa. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>contact@galaa.mn</authorEmail>
+	<authorUrl>www.galaa.mn</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[
+	The JExtBOX Who is Online Module displays the number of Anonymous Users (e.g. Guests) including Simulated Visitors and Registered Users (ones logged-in) that are currently accessing the Web site. Author <a href="http://galaa.mn" target="_blank">Galaa</a> Publisher <a href="http://jextbox.com" target="_blank">JExtBOX - BOX of Joomla Extensions</a>.
+	]]></description>
+	<files>
+		<filename module="mod_jextboxwhoisonline">mod_jextboxwhoisonline.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_jextboxwhoisonline.xml</filename>
+		<filename>install.mysql.utf8.sql</filename>
+		<filename>uninstall.mysql.utf8.sql</filename>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB.mod_jextboxwhoisonline.ini</language>
+		<language tag="en-GB">en-GB.mod_jextboxwhoisonline.sys.ini</language>
+	</languages>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="showmode"
+					type="list"
+					default="0"
+					label="MOD_JEXTBOXWHOISONLINE_SHOWMODE_LABEL"
+					description="MOD_JEXTBOXWHOISONLINE_SHOWMODE_DESC">
+					<option
+						value="0">MOD_JEXTBOXWHOISONLINE_FIELD_VALUE_NUMBER</option>
+					<option
+						value="1">MOD_JEXTBOXWHOISONLINE_FIELD_VALUE_NAMES</option>
+					<option
+						value="2">MOD_JEXTBOXWHOISONLINE_FIELD_VALUE_BOTH</option>
+				</field>
+				<field
+					name="including_simulated_number_of_visitors"
+					type="list"
+					default="1"
+					label="MOD_JEXTBOXWHOISONLINE_SIMULATED_NUMBER_OF_VISITORS_LABEL"
+					description="MOD_JEXTBOXWHOISONLINE_SIMULATED_NUMBER_OF_VISITORS_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+				<field
+					name="average_weekly_visitors"
+					type="text"
+					default="10000"
+					label="MOD_JEXTBOXWHOISONLINE_WEEKLY_VISITORS_LABEL"
+					description="MOD_JEXTBOXWHOISONLINE_WEEKLY_VISITORS_DESC"
+				/>
+				<field
+					name="visitors_by_day_as_percent"
+					type="text"
+					default="15.93,18.36,17.40,16.55,11.83,8.49,11.44"
+					label="MOD_JEXTBOXWHOISONLINE_VISITORS_BY_DAY_LABEL"
+					description="MOD_JEXTBOXWHOISONLINE_VISITORS_BY_DAY_DESC"
+				/>
+				<field
+					name="visitors_by_hour_as_percent"
+					type="text"
+					default="5.36,4.58,4.61,5.48,5.29,5.76,5.01,5.29,5.25,5.77,5.00,4.59,3.87,4.09,3.45,2.97,3.28,3.10,2.79,2.61,2.58,3.30,3.34,2.50"
+					label="MOD_JEXTBOXWHOISONLINE_VISITORS_BY_HOUR_LABEL"
+					description="MOD_JEXTBOXWHOISONLINE_VISITORS_BY_HOUR_DESC"
+				/>
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="filter_groups"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="MOD_JEXTBOXWHOISONLINE_FIELD_FILTER_GROUPS_LABEL"
+					description="MOD_JEXTBOXWHOISONLINE_FIELD_FILTER_GROUPS_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
