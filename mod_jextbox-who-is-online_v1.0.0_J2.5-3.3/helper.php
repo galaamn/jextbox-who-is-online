@@ -85,6 +85,7 @@ class ModJExtBOXWhoisOnlineHelper{
 				$simulated_count += $last_simulation->count;
 				$parameter = self::get_parameter_simulation($params, $last_simulation_start_time);
 				$simulated_count -= self::get_simulated_number_of_visitors($parameter, $duration);
+				$simulated_count = max(0, $simulated_count);
 			}
 		}
 
@@ -97,7 +98,7 @@ class ModJExtBOXWhoisOnlineHelper{
 		// Setting information of current simulation
 		self::set_last_simulation($simulated_count, $current_session_duration, $last_simulation->time == '0000-00-00 00:00:00');
 
-		return max(0, $simulated_count);
+		return $simulated_count;
 
 	}
 
